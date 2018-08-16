@@ -44,7 +44,7 @@ client.on("message", message => {
 });
 client.on("message", message => {
         let args = message.content.split(" ").slice(1);
-      if (message.content.startsWith(prefix + 'report')) {
+      if (message.content.startsWith(K + 'report')) {
             let user = message.mentions.users.first();
             let reason = args.slice(1).join(' ');
             let modlog = client.channels.find('name', 'report');
