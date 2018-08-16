@@ -49,7 +49,7 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray.slice(1);
 
-if(cmd === `${prefix}serverinfo`);
+if(cmd === `Kserverinfo`);
 let sicon = message.guild.displyAvatarURL;
 let serverEmbed = new Discord.RichEmbed()
 .setDescription("``Server Information``")
