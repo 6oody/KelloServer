@@ -27,18 +27,19 @@ client.user.setGame(`.Booّdy`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
 });
-
-
-var KinG66S = {};
-client.on('guildMemberRemove', member => {
-KinG66S[member.id] = {roles: member.roles.array()};
-});
-// 
-client.on('guildMemberAdd', member => {
-if(!KinG66S[member.user.id]) return;
-console.log(KinG66S[member.user.id].roles.length);
-for(let i = 0; i < KinG66S[member.user.id].roles.length + 1; i++) {
-member.addRole(KinG66S[member.user.id].roles.shift());
+client.on("message", message => {
+    if (message.content.match(/([A-Z0-9]|-|_){24}\.([A-Z0-9]|-|_){6}\.([A-Z0-9]|-|_){27}|mfa\.([A-Z0-9]|-|_){84}/gi)) {
+        if(!message.guild.members.get(client.user.id).hasPermission('MANAGE_MESSAGES')) return message.channel.send('**I need Permission \`MANAGE_MESSAGE\`To delete Tokens**')
+        message.delete();
+        message.reply(`you sent your token! Do not worry you've deleted it`);
+        return;
+    }
+                              if(message.channel.type === "dm"){
+    if (message.content.match(/([A-Z0-9]|-|_){24}\.([A-Z0-9]|-|_){6}\.([A-Z0-9]|-|_){27}|mfa\.([A-Z0-9]|-|_){84}/gi)) {
+        message.delete();
+        message.reply(`you sent your token! Do not worry you've deleted it`);
+        return;
+    }
 }
 });
 client.login(process.env.BOT_TOKEN);
