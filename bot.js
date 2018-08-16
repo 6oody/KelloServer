@@ -42,26 +42,27 @@ client.on("message", message => {
     }
 }
 });
-client.on("message", message => {
-        let args = message.content.split(" ").slice(1);
-      if (message.content.startsWith(K + 'report')) {
-            let user = message.mentions.users.first();
-            let reason = args.slice(1).join(' ');
-            let modlog = client.channels.find('name', 'report');
-            if (!reason) return message.reply('**ضع سبباً مقنعاً**');
-              if (message.mentions.users.size < 1) return message.reply('**يجب عليك منشن للعضو المراد الابلاغ عليه**').catch(console.error);
-       
-        if (!modlog) return message.reply('**لا يوجد روم بأسم report**');
-        const embed = new Discord.RichEmbed()
-          .setColor(0x00AE86)
-          .setTimestamp()
-          .addField('نوع الرسالة:', 'Report')
-          .addField('المراد الابلاغ عليه:', `${user.username}#${user.discriminator} (${user.id}`)
-          .addField('صاحب الابلاغ:', `${message.author.username}#${message.author.discriminator}`)
-          .addField('السبب', reason);
-          message.delete()
-          return client.channels.get(modlog.id).sendEmbed(embed).catch(console.error);
-          console.log('[report] Send By: ' + message.author.username)
-      }
-      });
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray.slice(1);
+
+if(cmd === `${prefix}serverinfo`);
+let sicon = message.guild.displyAvatarURL;
+let serverEmbed = new Discord.RichEmbed()
+.setDescription("``Server Information``")
+.addField("Server Name", message.guild.name)
+.addField("Created On", message.guild.createdAt)
+.addField("You Joined", message.member.joinedAt)
+.addField("Total Members", message.guild.memberCount)
+.addField("Server Owner", message.guild.owner.user.username)
+.addField("Rooms", message.guild.channels.size)
+.addField("Roles", message.guild.roles.size)
+.addField("Region", message.guild.region)
+.addField("Server ID", message.guild.id);
+
+return message.channel.send(serverEmbed);
+})
 client.login(process.env.BOT_TOKEN);
