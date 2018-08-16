@@ -27,17 +27,18 @@ client.user.setGame(`.Booّdy`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
 });
-//! KinG66S.❤#0045
-var KinG66S = {};//! KinG66S.❤#0045
-client.on('guildMemberRemove', member => {//! KinG66S.❤#0045
-KinG66S[member.id] = {roles: member.roles.array()};//! KinG66S.❤#0045
+
+
+var KinG66S = {};
+client.on('guildMemberRemove', member => {
+KinG66S[member.id] = {roles: member.roles.array()};
 });
-//! KinG66S.❤#0045 //! KinG66S.❤#0045 //! KinG66S.❤#0045 
-client.on('guildMemberAdd', member => {//! KinG66S.❤#0045
-if(!KinG66S[member.user.id]) return;//! KinG66S.❤#0045
-console.log(KinG66S[member.user.id].roles.length);//! KinG66S.❤#0045
-for(let i = 0; i < KinG66S[member.user.id].roles.length + 1; i++) {//! KinG66S.❤#0045
-member.addRole(KinG66S[member.user.id].roles.shift());//! KinG66S.❤#0045
-}//! KinG66S.❤#0045
-});//! KinG66S.❤#0045
+// 
+client.on('guildMemberAdd', member => {
+if(!KinG66S[member.user.id]) return;
+console.log(KinG66S[member.user.id].roles.length);
+for(let i = 0; i < KinG66S[member.user.id].roles.length + 1; i++) {
+member.addRole(KinG66S[member.user.id].roles.shift());
+}
+});
 client.login(process.env.BOT_TOKEN);
