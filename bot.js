@@ -79,27 +79,22 @@ client.on("message", async message => {
  reportschannel.send(reportEmbed);
 }
   });
-bot.on("message", async message => {
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
-  var prefix = "K";
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray.slice(1);
+ client.on('message', message => { //-MaX PicAssO#8266 codes©
+  if (message.content === "-id") {
+  let embed = new Discord.RichEmbed()//-MaX PicAssO#8266 codes©
+.setThumbnail(message.author.avatarURL)  
+.setAuthor(message.author.username)//-MaX PicAssO#8266 codes©
+.setDescription("**معلومات عن الحــساب**")
+            .setFooter(`-MaX PicAssO#8266.©`, 'codes.©')//-MaX PicAssO#8266 codes©
+.setColor("#9B59B6")
+.addField("**اســـم الحســاب**", `${message.author.username}`)//-MaX PicAssO#8266 codes©
+.addField('**تاق الحساب الخاص**', message.author.discriminator)
+.addField("**الرقـــم الشـــخصي**", message.author.id)//-MaX PicAssO#8266 codes©
+.addField('**بــــوت**', message.author.bot)
+.addField("**تاريخ التسجيل**", message.author.createdAt)//-MaX PicAssO#8266 codes©
+  //-MaX PicAssO#8266 codes©
 
-if(cmd === `${prefix}serverinfo`);
-let sicon = message.guild.displyAvatarURL;
-let serverEmbed = new Discord.RichEmbed()
-.setDescription("``Server Information``")
-.addField("Server Name", message.guild.name)
-.addField("Created On", message.guild.createdAt)
-.addField("You Joined", message.member.joinedAt)
-.addField("Total Members", message.guild.memberCount)
-.addField("Server Owner", message.guild.owner.user.username)
-.addField("Rooms", message.guild.channels.size)
-.addField("Roles", message.guild.roles.size)
-.addField("Region", message.guild.region)
-.addField("Server ID", message.guild.id);
-
-return message.channel.send(serverEmbed);
-})
+message.channel.sendEmbed(embed);
+ }
+});//تبغى تنشره حط حقوق كودز💙©
 client.login(process.env.BOT_TOKEN);
