@@ -168,7 +168,7 @@ client.on("message", async message => {
   
   if(message.author.bot) return;
   if(message.channel.type === 'dm') return;
-  if(message.content.startsWith(prefix + "bot")) {
+  if(message.content.startsWith(K + "bot")) {
     let ramUsage = (process.memoryUsage().rss / 1048576).toFixed();
     let upTime = timeCon(process.uptime());
     let createdAt = moment(hero.user.createdAt).fromNow();
