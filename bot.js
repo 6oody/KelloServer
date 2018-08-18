@@ -43,7 +43,8 @@ client.on("message", message => {
 }
 });
 client.on('message', message => { //invite
-    if (message.content.startsWith(K + "invite")) {
+  var prefix = "K"; 
+  if (message.content.startsWith(prefix + "invite")) {
      if(!message.channel.guild) return;
 if (message.author.bot) return;
         message.channel.createInvite({
