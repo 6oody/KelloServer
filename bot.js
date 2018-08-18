@@ -79,48 +79,27 @@ client.on("message", async message => {
  reportschannel.send(reportEmbed);
 }
   });
- hero.on('message',async message => {
-  function timeCon(time) {
-  let days = Math.floor(time % 31536000 / 86400);
-  let hours = Math.floor(time % 31536000 % 86400 / 3600);
-  let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60);
-  let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60);
-  days = days > 9 ? days : '0' + days;
-  hours = hours > 9 ? hours : '0' + hours;
-  minutes = minutes > 9 ? minutes : '0' + minutes;
-  seconds = seconds > 9 ? seconds : '0' + seconds;
-  return `${days > 0 ? `${days} Days ` : ''}${(hours || days) > 0 ? `${hours} Hours ` : ''}${minutes} Mins ${seconds} Secs`;
-  }
-  
+bot.on("message", async message => {
   if(message.author.bot) return;
-  if(message.channel.type === 'dm') return;
-  if(message.content.startsWith(K + "bot")) {
-    let ramUsage = (process.memoryUsage().rss / 1048576).toFixed();
-    let upTime = timeCon(process.uptime());
-    let createdAt = moment(hero.user.createdAt).fromNow();
+  if(message.channel.type === "dm") return;
+  var prefix = "K";
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray.slice(1);
 
-let m = await message.channel.send(`\`\`\`asciidoc\n= Normal Information =
-Creator :: ${hero.users.get("323885452207587329").username} - ${createdAt}
-Ping :: ${hero.pings[0]} ms
-UpTime :: ${upTime}
+if(cmd === `${prefix}serverinfo`);
+let sicon = message.guild.displyAvatarURL;
+let serverEmbed = new Discord.RichEmbed()
+.setDescription("``Server Information``")
+.addField("Server Name", message.guild.name)
+.addField("Created On", message.guild.createdAt)
+.addField("You Joined", message.member.joinedAt)
+.addField("Total Members", message.guild.memberCount)
+.addField("Server Owner", message.guild.owner.user.username)
+.addField("Rooms", message.guild.channels.size)
+.addField("Roles", message.guild.roles.size)
+.addField("Region", message.guild.region)
+.addField("Server ID", message.guild.id);
 
-= Servers Information =
-Servers :: ${hero.guilds.size}
-Users :: ${hero.users.size}
-Channels :: ${hero.channels.size}
-
-= Developer Information =
-NodeJS :: ${process.version}
-DiscordJS :: ${Discord.version}
-Arch :: ${process.arch}
-Platform :: ${process.platform}
-
-= Host Information =
-UsedHeap :: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100} MB
-Heap :: ${Math.round(process.memoryUsage().heapTotal / 1024 / 1024 * 100) / 100} MB
-Ram :: ${ramUsage} MB
-Rss :: ${Math.round(process.memoryUsage().rss / 1024 / 1024 * 100) / 100} MB
-\`\`\``);
-  }
-});
+return message.channel.send(serverEmbed);
+})
 client.login(process.env.BOT_TOKEN);
