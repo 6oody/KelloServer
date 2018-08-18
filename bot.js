@@ -78,7 +78,7 @@ client.on("message", async message => {
  message.delete().catch(O_o=> {});
  reportschannel.send(reportEmbed);
 }
-  }};
+  });
   bot.on("message", async message => {
       if(message.author.bot) return;
       if(message.channel.type === "dm") return;
