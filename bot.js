@@ -43,7 +43,7 @@ client.on("message", message => {
 }
 });
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "bot")) {
+            if (message.content.startsWith(K + "bot")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField(' السيرفرات🌐',`[${client.guilds.size}]  `)
