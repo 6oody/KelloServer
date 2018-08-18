@@ -79,7 +79,7 @@ client.on("message", async message => {
  reportschannel.send(reportEmbed);
 }
   });
- bot.on("message", async message => {
+ client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
@@ -116,7 +116,7 @@ client.on("message", async message => {
       kickChannel.send(kickEmbed);
     }
     });
-bot.on("message", async message => {
+client.on("message", async message => {
       if(message.author.bot) return;
       if(message.channel.type === "dm") return;
 
