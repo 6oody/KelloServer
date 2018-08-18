@@ -79,4 +79,40 @@ client.on("message", async message => {
  reportschannel.send(reportEmbed);
 }
 });
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+ var prefix = "K";
+  let messageArray = message.content.split (" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+
+
+    if(cmd === `${prefix}kick`){
+
+
+
+      let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+      let(!kUser) return message.channel.send("Can't find the user!");
+      let kReason = args.join(" ").slice(22);
+      if(message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("No you don't have permission to use the command");
+      if(kUser.hasPermission("MANAGE_CHANNELS")) return message.channel.send("That person can't be kicked because he is in the mods")
+
+      let kickEmbed = new Discord.RichEmbed()
+      .setDescription("~Kick~")
+      .setColor("#e56b00")
+      .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+      .addField("Kicked By", `<@${message.author.id}> with the id ${message.author.id}`)
+      .addField("Kicked In", message.channel)
+      .addField("Reason", kReason);
+
+      let kickChannel = message.guild.channels.find('name', 'kick-ban');
+      if(!kickChannel) return message.channel.send("Cannot find kick-ban channel.");
+
+      message.guild.member(kUser).kick(kReason)
+      kickChannel.send(kickEmbed);
+    }
+    });
 client.login(process.env.BOT_TOKEN);
