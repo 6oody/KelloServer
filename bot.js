@@ -79,8 +79,8 @@ client.on("message", async message => {
  reportschannel.send(reportEmbed);
 }
   });
- client.on("message", async message => {
-  if(message.author.bot) return;
+client.on("message", async message => {
+  if(message.author.client) return;
   if(message.channel.type === "dm") return;
 
   var prefix = "K";
@@ -117,7 +117,7 @@ client.on("message", async message => {
     }
     });
 client.on("message", async message => {
-      if(message.author.bot) return;
+      if(message.author.client) return;
       if(message.channel.type === "dm") return;
 
       var prefix = "K";
