@@ -42,22 +42,17 @@ client.on("message", message => {
     }
 }
 });
- client.on('message', message => { //-MaX PicAssO#8266 codes©
-  if (message.content === "-id") {
-  let embed = new Discord.RichEmbed()//-MaX PicAssO#8266 codes©
-.setThumbnail(message.author.avatarURL)  
-.setAuthor(message.author.username)//-MaX PicAssO#8266 codes©
-.setDescription("**معلومات عن الحــساب**")
-            .setFooter(`-MaX PicAssO#8266.©`, 'codes.©')//-MaX PicAssO#8266 codes©
-.setColor("#9B59B6")
-.addField("**اســـم الحســاب**", `${message.author.username}`)//-MaX PicAssO#8266 codes©
-.addField('**تاق الحساب الخاص**', message.author.discriminator)
-.addField("**الرقـــم الشـــخصي**", message.author.id)//-MaX PicAssO#8266 codes©
-.addField('**بــــوت**', message.author.bot)
-.addField("**تاريخ التسجيل**", message.author.createdAt)//-MaX PicAssO#8266 codes©
-  //-MaX PicAssO#8266 codes©
-
-message.channel.sendEmbed(embed);
- }
-});//تبغى تنشره حط حقوق كودز💙©
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "bot")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField(' السيرفرات🌐',`[${client.guilds.size}]  `)
+.addField(' الاعضاء👥 ',` [${client.users.size}] `)
+.addField('الرومات📚 ',`[${client.channels.size}]`) 
+.addField(' البنق🚀 ',`[${Date.now() - message.createdTimestamp}]`) 
+.addField('BooDy  + BooDy ',`BooDy`)
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
 client.login(process.env.BOT_TOKEN);
