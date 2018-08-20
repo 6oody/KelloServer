@@ -2411,7 +2411,7 @@ omar.reply("`تم حذف الرومات بنجاح`")
 		}
 	
 	});
-bot.on("message", async message => {
+client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
