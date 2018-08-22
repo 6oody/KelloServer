@@ -2415,7 +2415,7 @@ client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
-  var prefix = "K";
+  var prefix = "N";
   let messageArray = message.content.split (" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -2443,7 +2443,7 @@ client.on("message", async message => {
   .addField("Reason", reason);
 
  let reportschannel = message.guild.channels.find("name", "reports");
- if(!reportschannel) return message.channel.send("لم اجد الروم حقت الريبورتات يخوي لول");
+ if(!reportschannel) return message.channel.send("لم اجد روم الريبورتات");
 
 
  message.delete().catch(O_o=> {});
