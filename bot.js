@@ -2452,7 +2452,7 @@ client.on("message", async message => {
 });
 client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='$members')
+      if(message.content =='Nm')
       var kayan = new Discord.RichEmbed()
       .setThumbnail(message.author.avatarURL)
       .setFooter(message.author.username, message.author.avatarURL) 
