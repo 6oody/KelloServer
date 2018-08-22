@@ -4,7 +4,7 @@ const prefix = '.'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`.Booّdy`,"http://twitch.tv/S-F")
+client.user.setGame(`.Black Night`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -769,7 +769,7 @@ const prefix = 'N'
     }
 	});
 	client.on('message', omar => {
-var prefix = "+";
+var prefix = "N";
 if(omar.content.split(' ')[0] == prefix + 'removerooms') {  // delete all channels
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
