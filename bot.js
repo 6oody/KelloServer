@@ -43,7 +43,7 @@ client.on("message", message => {
 }
 });
 client.on('message', message => { //invite
-  var prefix = "N"; 
+  var prefix = "#"; 
   if (message.content.startsWith(prefix + "invite")) {
      if(!message.channel.guild) return;
 if (message.author.bot) return;
@@ -67,7 +67,7 @@ if (message.author.bot) return;
     }
 });
 client.on('message', message => {
-const prefix = 'N'	
+const prefix = '#'	
     if(message.content === prefix + 'createcolors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
          if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('**You Dont Have** `ADMINISTRATOR` **premission**').then(msg => msg.delete(6000))
@@ -769,7 +769,7 @@ const prefix = 'N'
     }
 	});
 	client.on('message', omar => {
-var prefix = "N";
+var prefix = "#";
 if(omar.content.split(' ')[0] == prefix + 'removerooms') {  // delete all channels
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
@@ -2415,7 +2415,7 @@ client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
-  var prefix = "N";
+  var prefix = "#";
   let messageArray = message.content.split (" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -2468,7 +2468,7 @@ client.on('message', message => {
     
     });
 client.on("message", msg => {
-  if(msg.content === 'N' + "id") {
+  if(msg.content === '#' + "id") {
       const embed = new Discord.RichEmbed();
   embed.addField("🔱| اسم الحساب :", `${msg.author.username}#${msg.author.discriminator}`, true)
           .addField("🆔| الاي دي :", `${msg.author.id}`, true)
