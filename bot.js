@@ -4,7 +4,7 @@ const prefix = 'D'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`.Black Night`,"http://twitch.tv/S-F")
+client.user.setGame(`Daaaark,,,,,,!`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
