@@ -2683,3 +2683,4 @@ function errormsg(message, err, cmd) {
     return; 
 }
 client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
