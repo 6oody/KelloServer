@@ -2659,4 +2659,27 @@ client.on('message',message =>{
    
     }
   });
+function errormsg(message, err, cmd) {
+    message.channel.send(errmsg) 
+    client.channels.get("497522487953850379").send(`**:warning: Error**`, {embed: {
+    description: `\`\`\`${err}\`\`\` `,
+    fields: [
+        {
+        name: "**server**",
+        value: message.guild.name,
+        inline: true
+        }, 
+        {
+        name: "**user**",
+        value: message.author.username,
+        inline: true
+        }, 
+        {
+        name: "**command**",
+        value: cmd,
+        inline: true
+        }
+    ]}})
+    return; 
+}
 client.login(process.env.BOT_TOKEN);
